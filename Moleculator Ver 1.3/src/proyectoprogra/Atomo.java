@@ -3,27 +3,45 @@ package proyectoprogra;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
 
 
 public class Atomo {
     private String Nombre;
     private int x=0, y=0;
     static final int d = 60;
+    public String colouraux;
     
 
     public Atomo(int x, int y, String nombre){
         this.Nombre=nombre;
         setX(x);
         setY(y);
+        this.colouraux=VentanaCreacion.colour;
     }
     
     public Atomo(){   
     }
 
     public void pintar (Graphics g){
-        g.setColor(Color.white);
-        g.drawOval(getX(), getY(), d, d); 
+        if(colouraux.equals("blue")){
+            g.setColor(Color.blue);
+        }
+        else if(colouraux.equals("pink")){
+            g.setColor(Color.pink);
+        }
+        else if(colouraux.equals("green")){
+            g.setColor(Color.green);
+        }
+        else if(colouraux.equals("yellow")){
+            g.setColor(Color.yellow);
+        }
+        else{
+            g.setColor(Color.black);
+        }
+        g.drawArc(getX(), getY(), d, d, 0, 180);
+        g.drawArc(getX(), getY(), d, d, 0, -180);
+        
+        
         g.drawString(this.Nombre, getX()+10, getY()+35);
     }
     

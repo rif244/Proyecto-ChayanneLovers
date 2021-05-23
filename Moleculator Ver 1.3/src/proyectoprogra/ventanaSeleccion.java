@@ -4,7 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class ventanaSeleccion extends VentanaGeneral {
@@ -13,7 +15,9 @@ public class ventanaSeleccion extends VentanaGeneral {
     public ventanaSeleccion() {//constuctor
         super();
         this.botonAtomo();
-        this.botonMolecula();    
+        this.botonMolecula();  
+        this.labelNombre();
+        this.labelIcon();
     }
 
     private void botonAtomo() {
@@ -21,7 +25,7 @@ public class ventanaSeleccion extends VentanaGeneral {
         button.setBounds(200, 200, 200, 50);
         button.setText("Crear Atomo");
         button.setFont(new Font("times new roman",Font.BOLD, 14));
-        button.setBackground(Color.white);
+        button.setBackground(new Color(200,200,200));
         panel.add(button);  
        
         //evento del botton CrearAtomo
@@ -33,7 +37,6 @@ public class ventanaSeleccion extends VentanaGeneral {
                 Atomo atomoaux = new Atomo();
                 atomoaux.setNombre(entrada);
                 Guardado.Lista.add(atomoaux);
-                JOptionPane.showMessageDialog(null,"El atomo se ha ingresado correctamente", "Moleculator", JOptionPane.PLAIN_MESSAGE);
             }
         };   
         button.addActionListener(evento);
@@ -45,7 +48,7 @@ public class ventanaSeleccion extends VentanaGeneral {
         button.setBounds(200, 350, 200, 50);
         button.setText("Crear Molecula");
         button.setFont(new Font("times new roman",Font.BOLD, 14));
-        button.setBackground(Color.white);
+        button.setBackground(new Color(200,200,200));
         panel.add(button);  
         
         //evento del botton CrearAtomo
@@ -53,6 +56,9 @@ public class ventanaSeleccion extends VentanaGeneral {
             @Override
             public void actionPerformed(ActionEvent ae) { 
                 VentanaCreacion v2 = new VentanaCreacion();
+                VentanaCreacion.atomo = 0;
+                VentanaCreacion.Nenlaces = 0;
+                VentanaCreacion.colour = "black";
                 dispose();
                 v2.setVisible(true);
             }
@@ -61,6 +67,21 @@ public class ventanaSeleccion extends VentanaGeneral {
     }
     
         
+    private void labelNombre(){
+        JLabel Nombre = new JLabel();
+        Nombre.setLayout(null);
+        Nombre.setText("Designed by Chayanne Lovers in Chile. Ver. 1.4");
+        Nombre.setForeground(Color.white);//letras enlaces
+        Nombre.setBounds(380, 710, 400, 20);
+        Nombre.setFont(new Font("times new roman", Font.BOLD, 14));
+        panel.add(Nombre);
+    } 
     
-        
+
+    private void labelIcon(){
+        JLabel Dios = new JLabel();
+        Dios.setIcon(new ImageIcon("Chayanne.jpg"));
+        Dios.setBounds(700,560,600,300);
+        panel.add(Dios);
+    }
 }

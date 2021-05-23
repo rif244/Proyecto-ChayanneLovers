@@ -21,7 +21,6 @@ public class VentanaGeneral extends JFrame {
         this.setTitle("Moleculator");//titulo de la ventana
         this.setLocation(500,100);//se inicializa la ventana en el centro de la pantalla
         this.setLayout(null);
-        this.getContentPane().setBackground(Color.black);
         this.crearPanel();
     }
 
@@ -30,19 +29,19 @@ public class VentanaGeneral extends JFrame {
         panel2 = new JPanel();
         panel.setLayout(null);//desactivamos el diseño por defecto
         panel.setBounds(200, 0, 823, 800);
-        panel.setBackground(Color.black);
+        panel.setBackground(new Color(50,50,50));//panel de la derecha
         this.getContentPane().add(panel);//agregamos el panel a la ventana
         this.JlTitulo(); 
         panel2.setLayout(null);//desactivamos el diseño por defecto
         panel2.setBounds(0, 0, 200, 800);
-        panel2.setBackground(Color.black);
+        panel2.setBackground(new Color(50,50,50));//panel de la izquierda
         this.getContentPane().add(panel2);//agregamos el panel a la ventana
     }
 
     private void JlTitulo() {
         label.setText("MOLECULATOR");
-        label.setBounds(200, 20, 500, 20);//posicion del titulo
-        label.setForeground(Color.white);//cambio de color de la fuente
+        label.setBounds(220, 20, 500, 20);//posicion del titulo
+        label.setForeground(new Color(200,200,200));//cambio de color de la fuente
         label.setFont(new Font("times new roman", Font.BOLD, 20));//cambio de fuente y 
         panel.add(label);
     }
